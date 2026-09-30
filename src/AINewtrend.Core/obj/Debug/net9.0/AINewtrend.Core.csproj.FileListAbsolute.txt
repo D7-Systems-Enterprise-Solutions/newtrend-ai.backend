@@ -60,3 +60,4 @@ C:\Sources\ai-newtrend\ai-newtrend.Backend\src\AINewtrend.Core\obj\Debug\net9.0\
 C:\Sources\ai-newtrend\ai-newtrend.Backend\src\AINewtrend.Core\obj\Debug\net9.0\AINewtrend.Core.pdb
 C:\Sources\ai-newtrend\ai-newtrend.Backend\src\AINewtrend.Core\obj\Debug\net9.0\AINewtrend.Core.genruntimeconfig.cache
 C:\Sources\ai-newtrend\ai-newtrend.Backend\src\AINewtrend.Core\obj\Debug\net9.0\ref\AINewtrend.Core.dll
+C:\Sources\ai-newtrend\ai-newtrend.backend\src\AINewtrend.Core\obj\Debug\net9.0\AINewtrend.Core.sourcelink.json
