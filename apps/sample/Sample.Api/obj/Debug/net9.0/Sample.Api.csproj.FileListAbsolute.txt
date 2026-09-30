@@ -76,3 +76,4 @@ C:\Sources\ai-newtrend\ai-newtrend.Backend\apps\sample\Sample.Api\obj\Debug\net9
 C:\Sources\ai-newtrend\ai-newtrend.Backend\apps\sample\Sample.Api\obj\Debug\net9.0\Sample.Api.pdb
 C:\Sources\ai-newtrend\ai-newtrend.Backend\apps\sample\Sample.Api\obj\Debug\net9.0\Sample.Api.genruntimeconfig.cache
 C:\Sources\ai-newtrend\ai-newtrend.Backend\apps\sample\Sample.Api\obj\Debug\net9.0\ref\Sample.Api.dll
+C:\Sources\ai-newtrend\ai-newtrend.backend\apps\sample\Sample.Api\obj\Debug\net9.0\Sample.Api.sourcelink.json

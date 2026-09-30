@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Sources\\ai-newtrend\\ai-newtrend.Backend\\src\\AINewtrend.Core\\AINewtrend.Core.csproj": {}
+    "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Core\\AINewtrend.Core.csproj": {}
   },
   "projects": {
-    "C:\\Sources\\ai-newtrend\\ai-newtrend.Backend\\src\\AINewtrend.Core\\AINewtrend.Core.csproj": {
+    "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Core\\AINewtrend.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Sources\\ai-newtrend\\ai-newtrend.Backend\\src\\AINewtrend.Core\\AINewtrend.Core.csproj",
+        "projectUniqueName": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Core\\AINewtrend.Core.csproj",
         "projectName": "AINewtrend.Core",
-        "projectPath": "C:\\Sources\\ai-newtrend\\ai-newtrend.Backend\\src\\AINewtrend.Core\\AINewtrend.Core.csproj",
-        "packagesPath": "C:\\Users\\Manuel\\AppData\\Local\\Temp\\cursor-sandbox-cache\\738f5449882751eda210d5b926965209\\nuget",
-        "outputPath": "C:\\Sources\\ai-newtrend\\ai-newtrend.Backend\\src\\AINewtrend.Core\\obj\\",
+        "projectPath": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Core\\AINewtrend.Core.csproj",
+        "packagesPath": "C:\\Users\\Manuel\\.nuget\\packages\\",
+        "outputPath": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

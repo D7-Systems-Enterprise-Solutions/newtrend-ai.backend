@@ -22,3 +22,5 @@ C:\Sources\ai-newtrend\ai-newtrend.Backend\src\AINewtrend.Sdk\obj\Debug\net9.0\A
 C:\Sources\ai-newtrend\ai-newtrend.Backend\src\AINewtrend.Sdk\obj\Debug\net9.0\refint\AINewtrend.Sdk.dll
 C:\Sources\ai-newtrend\ai-newtrend.Backend\src\AINewtrend.Sdk\obj\Debug\net9.0\AINewtrend.Sdk.pdb
 C:\Sources\ai-newtrend\ai-newtrend.Backend\src\AINewtrend.Sdk\obj\Debug\net9.0\ref\AINewtrend.Sdk.dll
+C:\Sources\ai-newtrend\ai-newtrend.backend\src\AINewtrend.Sdk\obj\Debug\net9.0\AINewtrend.Sdk.sourcelink.json
+C:\Sources\ai-newtrend\ai-newtrend.backend\src\AINewtrend.Sdk\obj\Debug\net9.0\AINewtre.3BE970CE.Up2Date
