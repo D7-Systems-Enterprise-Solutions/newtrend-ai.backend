@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ICn+dULbv4A=",
+  "success": true,
+  "projectFilePath": "C:\\Sources\\ai-newtrend\\ai-newtrend.Backend\\src\\AINewtrend.Core\\AINewtrend.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Manuel\\AppData\\Local\\Temp\\cursor-sandbox-cache\\738f5449882751eda210d5b926965209\\nuget\\google.protobuf\\3.36.2\\google.protobuf.3.36.2.nupkg.sha512",
+    "C:\\Users\\Manuel\\AppData\\Local\\Temp\\cursor-sandbox-cache\\738f5449882751eda210d5b926965209\\nuget\\grpc.tools\\2.84.0\\grpc.tools.2.84.0.nupkg.sha512"
+  ],
+  "logs": []
+}

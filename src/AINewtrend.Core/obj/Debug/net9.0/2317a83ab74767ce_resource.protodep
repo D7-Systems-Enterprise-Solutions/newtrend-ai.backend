@@ -1,0 +1,2 @@
+obj\Debug\net9.0\opentelemetry\proto\resource\v1/Resource.cs: Protos/opentelemetry/proto/common/v1/common.proto\
+ Protos/opentelemetry/proto/resource/v1/resource.proto
