@@ -8,12 +8,24 @@
     ".NETCoreApp,Version=v9.0": {
       "AINewtrend.Sdk/1.0.0": {
         "dependencies": {
+          "Ben.Demystifier": "0.4.1",
           "OpenTelemetry.Exporter.OpenTelemetryProtocol": "1.19.1",
           "OpenTelemetry.Extensions.Hosting": "1.19.1",
           "OpenTelemetry.Instrumentation.AspNetCore": "1.19.0"
         },
         "runtime": {
           "AINewtrend.Sdk.dll": {}
+        }
+      },
+      "Ben.Demystifier/0.4.1": {
+        "dependencies": {
+          "System.Reflection.Metadata": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Ben.Demystifier.dll": {
+            "assemblyVersion": "0.4.0.0",
+            "fileVersion": "0.4.0.2"
+          }
         }
       },
       "Microsoft.Extensions.Configuration/9.0.0": {
@@ -182,7 +194,8 @@
             "fileVersion": "10.0.25.52411"
           }
         }
-      }
+      },
+      "System.Reflection.Metadata/5.0.0": {}
     }
   },
   "libraries": {
@@ -190,6 +203,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Ben.Demystifier/0.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-axFeEMfmEORy3ipAzOXG/lE+KcNptRbei3F0C4kQCdeiQtW+qJW90K5iIovITGrdLt8AjhNCwk5qLSX9/rFpoA==",
+      "path": "ben.demystifier/0.4.1",
+      "hashPath": "ben.demystifier.0.4.1.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/9.0.0": {
       "type": "package",
@@ -344,6 +364,13 @@
       "sha512": "sha512-0KdBK+h7G13PuOSC2R/DalAoFMvdYMznvGRuICtkdcUMXgl/gYXsG6z4yUvTxHSMACorWgHCU1Faq0KUHU6yAQ==",
       "path": "system.diagnostics.diagnosticsource/10.0.0",
       "hashPath": "system.diagnostics.diagnosticsource.10.0.0.nupkg.sha512"
+    },
+    "System.Reflection.Metadata/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5NecZgXktdGg34rh1OenY1rFNDCI8xSjFr+Z4OU4cU06AQHUdRnIIEeWENu3Wl4YowbzkymAIMvi3WyK9U53pQ==",
+      "path": "system.reflection.metadata/5.0.0",
+      "hashPath": "system.reflection.metadata.5.0.0.nupkg.sha512"
     }
   }
 }

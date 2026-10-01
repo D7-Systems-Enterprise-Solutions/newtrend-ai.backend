@@ -9,11 +9,12 @@ using Microsoft.AspNetCore.Http;
 
 namespace AINewtrend;
 
-internal sealed class MethodSourceStartupFilter : IStartupFilter
+internal sealed class MethodSourceStartupFilter(IHttpContextAccessor accessor) : IStartupFilter
 {
     public Action<IApplicationBuilder> Configure(Action<IApplicationBuilder> next)
         => app =>
         {
+            SqlCommandListener.Accessor = accessor;
             app.Use(async (context, nextDelegate) =>
             {
                 try
@@ -33,15 +34,35 @@ internal sealed class MethodSourceStartupFilter : IStartupFilter
 
 internal static class MethodSource
 {
-    private static readonly Dictionary<MethodInfo, Located> Cache = new();
+    private static readonly Dictionary<MethodBase, Located> Cache = new();
+
+    internal static string? EndpointFunction(HttpContext? context)
+    {
+        if (context is null)
+            return null;
+
+        var method = FindMethod(context);
+        if (method is null)
+            return null;
+
+        var located = Locate(method);
+        var activity = Activity.Current;
+        if (activity is { IsAllDataRequested: true, IsStopped: false })
+            Write(activity, located);
+        return located.Function;
+    }
 
     public static void Apply(Activity activity, HttpResponse response)
     {
-        var method = FindMethod(response.HttpContext);
+        var method = FindMethod(response.HttpContext) as MethodBase;
         if (method is null)
             return;
 
-        var located = Locate(method);
+        Write(activity, Locate(method));
+    }
+
+    private static void Write(Activity activity, Located located)
+    {
         activity.SetTag("code.function.name", located.Function);
         if (located.File is not null)
             activity.SetTag("code.file.path", located.File);
@@ -86,7 +107,7 @@ internal static class MethodSource
             && !ns.StartsWith("OpenTelemetry.", StringComparison.Ordinal);
     }
 
-    private static Located Locate(MethodInfo method)
+    internal static Located Locate(MethodBase method)
     {
         lock (Cache)
         {
@@ -100,7 +121,7 @@ internal static class MethodSource
         return located;
     }
 
-    private static Located Read(MethodInfo method)
+    private static Located Read(MethodBase method)
     {
         var function = method.DeclaringType is null
             ? method.Name
@@ -132,7 +153,7 @@ internal static class MethodSource
         return new Located(function, null, null);
     }
 
-    private static bool TrySidecar(string modulePath, MethodInfo method, out Located located)
+    private static bool TrySidecar(string modulePath, MethodBase method, out Located located)
     {
         located = default;
         var pdbPath = Path.ChangeExtension(modulePath, ".pdb");
@@ -144,7 +165,7 @@ internal static class MethodSource
         return TryPoints(provider.GetMetadataReader(), method, out located);
     }
 
-    private static bool TryEmbedded(PEReader pe, MethodInfo method, out Located located)
+    private static bool TryEmbedded(PEReader pe, MethodBase method, out Located located)
     {
         located = default;
         foreach (var entry in pe.ReadDebugDirectory())
@@ -159,7 +180,7 @@ internal static class MethodSource
         return false;
     }
 
-    private static bool TryPoints(MetadataReader reader, MethodInfo method, out Located located)
+    private static bool TryPoints(MetadataReader reader, MethodBase method, out Located located)
     {
         located = default;
         var entity = MetadataTokens.EntityHandle(method.MetadataToken);
@@ -184,5 +205,5 @@ internal static class MethodSource
         return false;
     }
 
-    private readonly record struct Located(string Function, string? File, int? Line);
+    internal readonly record struct Located(string Function, string? File, int? Line);
 }
