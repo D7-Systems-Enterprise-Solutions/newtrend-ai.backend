@@ -8,6 +8,7 @@ public sealed class Execution
     public double? DurationMs { get; set; }
     public DateTimeOffset StartedAt { get; set; }
     public string? ServiceName { get; set; }
+    public string? ApplicationVersion { get; set; }
     public List<ExecutionStep> Steps { get; set; } = [];
     public ErrorInfo? Error { get; set; }
 }
@@ -25,6 +26,7 @@ public sealed class ExecutionStep
     public DateTimeOffset StartedAt { get; set; }
     public SourceLocation? Source { get; set; }
     public int? HttpStatus { get; set; }
+    public string? SqlText { get; set; }
 }
 
 public sealed class SourceLocation
@@ -38,4 +40,5 @@ public sealed class ErrorInfo
 {
     public string? Message { get; set; }
     public string? Layer { get; set; }
+    public string? Operation { get; set; }
 }

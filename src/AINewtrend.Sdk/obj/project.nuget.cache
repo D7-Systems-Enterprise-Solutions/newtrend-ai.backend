@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Wdu3+MCcwfo=",
+  "dgSpecHash": "fXMKk4icS9U=",
   "success": true,
   "projectFilePath": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\AINewtrend.Sdk.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Manuel\\.nuget\\packages\\ben.demystifier\\0.4.1\\ben.demystifier.0.4.1.nupkg.sha512",
     "C:\\Users\\Manuel\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.0\\microsoft.extensions.configuration.9.0.0.nupkg.sha512",
     "C:\\Users\\Manuel\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.0\\microsoft.extensions.configuration.abstractions.9.0.0.nupkg.sha512",
     "C:\\Users\\Manuel\\.nuget\\packages\\microsoft.extensions.configuration.binder\\9.0.0\\microsoft.extensions.configuration.binder.9.0.0.nupkg.sha512",
@@ -25,7 +26,8 @@
     "C:\\Users\\Manuel\\.nuget\\packages\\opentelemetry.exporter.opentelemetryprotocol\\1.19.1\\opentelemetry.exporter.opentelemetryprotocol.1.19.1.nupkg.sha512",
     "C:\\Users\\Manuel\\.nuget\\packages\\opentelemetry.extensions.hosting\\1.19.1\\opentelemetry.extensions.hosting.1.19.1.nupkg.sha512",
     "C:\\Users\\Manuel\\.nuget\\packages\\opentelemetry.instrumentation.aspnetcore\\1.19.0\\opentelemetry.instrumentation.aspnetcore.1.19.0.nupkg.sha512",
-    "C:\\Users\\Manuel\\.nuget\\packages\\system.diagnostics.diagnosticsource\\10.0.0\\system.diagnostics.diagnosticsource.10.0.0.nupkg.sha512"
+    "C:\\Users\\Manuel\\.nuget\\packages\\system.diagnostics.diagnosticsource\\10.0.0\\system.diagnostics.diagnosticsource.10.0.0.nupkg.sha512",
+    "C:\\Users\\Manuel\\.nuget\\packages\\system.reflection.metadata\\5.0.0\\system.reflection.metadata.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

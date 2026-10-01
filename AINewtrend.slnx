@@ -3,6 +3,9 @@
   <Folder Name="/apps/sample/">
     <Project Path="apps/sample/Sample.Api/Sample.Api.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/AINewtrend.Core.Tests/AINewtrend.Core.Tests.csproj" />
+  </Folder>
   <Folder Name="/src/">
     <Project Path="src/AINewtrend.Core/AINewtrend.Core.csproj" />
     <Project Path="src/AINewtrend.Sdk/AINewtrend.Sdk.csproj" />

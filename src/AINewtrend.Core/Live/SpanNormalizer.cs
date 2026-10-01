@@ -1,10 +1,11 @@
+using System.Text.RegularExpressions;
 using Google.Protobuf;
 using OpenTelemetry.Proto.Common.V1;
 using OpenTelemetry.Proto.Trace.V1;
 
 namespace AINewtrend.Core.Live;
 
-public static class SpanNormalizer
+public static partial class SpanNormalizer
 {
     public static ExecutionStep ToStep(Span span)
     {
@@ -28,17 +29,29 @@ public static class SpanNormalizer
                 : DateTimeOffset.FromUnixTimeMilliseconds(unchecked((long)(span.StartTimeUnixNano / 1_000_000))),
             Source = ReadSource(span),
             HttpStatus = httpStatus,
+            SqlText = Privacy.Masker.Mask(ReadSql(span)),
         };
     }
 
     public static string? UserAction(Span span)
         => Attribute(span, "ai.newtrend.user_action");
 
+    public static string? ApplicationVersion(IEnumerable<KeyValue> attributes)
+        => ResourceAttribute(attributes, "service.version");
+
+    public static string? ReadSql(Span span)
+        => Attribute(span, "db.statement") ?? Attribute(span, "db.query.text");
+
     public static string? ServiceName(IEnumerable<KeyValue> attributes)
+    {
+        return ResourceAttribute(attributes, "service.name");
+    }
+
+    private static string? ResourceAttribute(IEnumerable<KeyValue> attributes, string key)
     {
         foreach (var attribute in attributes)
         {
-            if (attribute.Key == "service.name")
+            if (attribute.Key == key)
                 return ValueAsString(attribute.Value);
         }
 
@@ -53,6 +66,9 @@ public static class SpanNormalizer
         var layer = Attribute(span, "ai.newtrend.layer");
         if (layer is "frontend" or "http" or "backend" or "sql")
             return Capitalize(layer);
+
+        if (ReadSql(span) is not null)
+            return "Sql";
 
         if (Attribute(span, "ai.newtrend.user_action") is not null)
             return "Frontend";
@@ -80,8 +96,27 @@ public static class SpanNormalizer
         if (method is not null && route is not null)
             return $"{method} {route}";
 
+        if (layer == "Sql")
+            return SqlTitle(ReadSql(span) ?? span.Name);
+
         return string.IsNullOrWhiteSpace(span.Name) ? layer : span.Name;
     }
+
+    private static string SqlTitle(string sql)
+    {
+        var operation = SqlOperation().Match(sql);
+        var from = SqlFrom().Match(sql);
+        if (operation.Success && from.Success)
+            return $"{operation.Groups[1].Value.ToUpperInvariant()} FROM {from.Groups[1].Value}";
+
+        return string.IsNullOrWhiteSpace(sql) ? "SQL" : sql;
+    }
+
+    [GeneratedRegex(@"^\s*(SELECT|INSERT|UPDATE|DELETE)\b", RegexOptions.IgnoreCase)]
+    private static partial Regex SqlOperation();
+
+    [GeneratedRegex(@"\bFROM\s+((?:\[[^\]]+\]|[A-Za-z_][A-Za-z0-9_]*)(?:\s*\.\s*(?:\[[^\]]+\]|[A-Za-z_][A-Za-z0-9_]*))*)", RegexOptions.IgnoreCase)]
+    private static partial Regex SqlFrom();
 
     private static string? Route(Span span)
     {

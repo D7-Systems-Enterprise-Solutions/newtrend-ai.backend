@@ -20,13 +20,17 @@ public static class AINewtrendServiceCollectionExtensions
         Environment.SetEnvironmentVariable("OTEL_BSP_SCHEDULE_DELAY", "200");
         Environment.SetEnvironmentVariable("OTEL_EXPORTER_OTLP_PROTOCOL", "http/protobuf");
 
+        services.AddHttpContextAccessor();
         services.AddSingleton<IStartupFilter, MethodSourceStartupFilter>();
+        SqlCommandListener.Start();
         services.AddOpenTelemetry()
             .ConfigureResource(resource => resource.AddService(options.ServiceName))
-            .WithTracing(tracing => tracing.AddAspNetCoreInstrumentation(instrumentation =>
-            {
-                instrumentation.EnrichWithHttpResponse = MethodSource.Apply;
-            }))
+            .WithTracing(tracing => tracing
+                .AddSource(CallChain.SourceName)
+                .AddAspNetCoreInstrumentation(instrumentation =>
+                {
+                    instrumentation.EnrichWithHttpResponse = MethodSource.Apply;
+                }))
             .UseOtlpExporter(OtlpExportProtocol.HttpProtobuf, options.Endpoint);
 
         return services;

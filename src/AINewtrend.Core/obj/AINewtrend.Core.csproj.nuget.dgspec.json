@@ -64,6 +64,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.84.0, )"
+            },
+            "Microsoft.Data.Sqlite": {
+              "target": "Package",
+              "version": "[9.0.9, )"
             }
           },
           "imports": [

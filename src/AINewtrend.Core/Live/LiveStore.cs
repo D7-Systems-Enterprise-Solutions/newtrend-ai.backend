@@ -18,6 +18,9 @@ public sealed class LiveStore : ILiveStore
                 var serviceName = resourceSpans.Resource is null
                     ? null
                     : SpanNormalizer.ServiceName(resourceSpans.Resource.Attributes);
+                var version = resourceSpans.Resource is null
+                    ? null
+                    : SpanNormalizer.ApplicationVersion(resourceSpans.Resource.Attributes);
 
                 foreach (var scope in resourceSpans.ScopeSpans)
                 {
@@ -35,6 +38,9 @@ public sealed class LiveStore : ILiveStore
 
                         if (string.IsNullOrWhiteSpace(execution.ServiceName))
                             execution.ServiceName = serviceName;
+
+                        if (string.IsNullOrWhiteSpace(execution.ApplicationVersion))
+                            execution.ApplicationVersion = version;
 
                         execution.Upsert(span);
                     }
@@ -85,6 +91,7 @@ public sealed class LiveStore : ILiveStore
         public string TraceId { get; }
         public string? UserAction { get; private set; }
         public string? ServiceName { get; set; }
+        public string? ApplicationVersion { get; set; }
         public ulong StartedUnixNano { get; private set; } = ulong.MaxValue;
         public int StepCount => _steps.Count;
 
@@ -130,15 +137,17 @@ public sealed class LiveStore : ILiveStore
                     ? DateTimeOffset.UnixEpoch
                     : DateTimeOffset.FromUnixTimeMilliseconds((long)(started / 1_000_000)),
                 ServiceName = ServiceName,
+                ApplicationVersion = ApplicationVersion,
                 Steps = steps,
                 Error = failed is null
                     ? null
                     : new ErrorInfo
                     {
                         Layer = failed.Layer,
-                        Message = failed.HttpStatus is int code
+                        Operation = failed.Name,
+                        Message = Privacy.Masker.Mask(failed.HttpStatus is int code
                             ? $"HTTP {code}"
-                            : "The step failed.",
+                            : "The step failed."),
                     },
             };
         }
