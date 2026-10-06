@@ -13,6 +13,17 @@ namespace AINewtrend.Core.Tests;
 public class RoadmapTests
 {
     [Fact]
+    public void Identity_sql_and_generated_methods_are_infrastructure()
+    {
+        Assert.Equal("infrastructure", SpanNormalizer.ClassifyKind("SELECT FROM [identity].[AuthSessions]", "SELECT TOP(2) [a].[AuthSessionId] FROM [identity].[AuthSessions] AS [a] WHERE [a].[UserId] = 'x'", null));
+        Assert.Equal("infrastructure", SpanNormalizer.ClassifyKind("SELECT FROM [identity].[CredentialAccounts]", "SELECT [c].[PasswordHash] FROM [identity].[CredentialAccounts] AS [c]", null));
+        Assert.Equal("infrastructure", SpanNormalizer.ClassifyKind("lambda_method2725", null, "lambda_method2725"));
+        Assert.Equal("core", SpanNormalizer.ClassifyKind("SELECT FROM [sales].[Orders]", "SELECT [o].[Id] FROM [sales].[Orders] AS [o] WHERE [o].[UserId] = 'x'", null));
+        Assert.Equal("infrastructure", SpanNormalizer.ClassifyKind("EffectivePermissionResolver.ResolveAsync", null, "App.EffectivePermissionResolver.ResolveAsync"));
+        Assert.Equal("core", SpanNormalizer.ClassifyKind("CreateProviderHandler.Handle", null, "Sample.Api.CreateProviderHandler.Handle"));
+    }
+
+    [Fact]
     public void Masker_hides_secrets()
     {
         var masked = Masker.Mask("Authorization: Bearer abc.def token=super-secret {\"password\":\"hunter2\"}");

@@ -10,7 +10,7 @@ public sealed class AINewtrendOptions
     public Uri Endpoint { get; set; } = new("http://127.0.0.1:4318");
 
     /// <summary>
-    /// Accepted for SQL instrumentation in a later sprint. Unused in Sprint 1.
+    /// Kept for compatibility. SQL capture uses SqlClient instrumentation and does not read this value.
     /// </summary>
     public string? ConnectionString { get; set; }
 }

@@ -132,6 +132,14 @@
           "framework": "net9.0",
           "targetAlias": "net9.0",
           "dependencies": {
+            "Ben.Demystifier": {
+              "target": "Package",
+              "version": "[0.4.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[9.0.8, )"
+            },
             "OpenTelemetry.Exporter.OpenTelemetryProtocol": {
               "target": "Package",
               "version": "[1.19.1, )"
@@ -141,6 +149,10 @@
               "version": "[1.19.1, )"
             },
             "OpenTelemetry.Instrumentation.AspNetCore": {
+              "target": "Package",
+              "version": "[1.19.0, )"
+            },
+            "OpenTelemetry.Instrumentation.SqlClient": {
               "target": "Package",
               "version": "[1.19.0, )"
             }
