@@ -14,7 +14,7 @@ internal sealed class MethodSourceStartupFilter(IHttpContextAccessor accessor) :
     public Action<IApplicationBuilder> Configure(Action<IApplicationBuilder> next)
         => app =>
         {
-            SqlCommandListener.Accessor = accessor;
+            MethodSource.Accessor = accessor;
             app.Use(async (context, nextDelegate) =>
             {
                 try
@@ -35,6 +35,10 @@ internal sealed class MethodSourceStartupFilter(IHttpContextAccessor accessor) :
 internal static class MethodSource
 {
     private static readonly Dictionary<MethodBase, Located> Cache = new();
+
+    internal static IHttpContextAccessor? Accessor { get; set; }
+
+    internal static HttpContext? CurrentHttpContext => Accessor?.HttpContext;
 
     internal static string? EndpointFunction(HttpContext? context)
     {
@@ -123,11 +127,28 @@ internal static class MethodSource
 
     private static Located Read(MethodBase method)
     {
-        var function = method.DeclaringType is null
-            ? method.Name
-            : $"{method.DeclaringType.FullName}.{method.Name}";
+        string function;
+        try
+        {
+            function = method.DeclaringType is null
+                ? method.Name
+                : $"{method.DeclaringType.FullName}.{method.Name}";
+        }
+        catch (Exception)
+        {
+            function = method.Name;
+        }
 
-        var modulePath = method.Module.FullyQualifiedName;
+        string? modulePath;
+        try
+        {
+            modulePath = method.Module.FullyQualifiedName;
+        }
+        catch (Exception)
+        {
+            return new Located(function, null, null);
+        }
+
         if (string.IsNullOrEmpty(modulePath) || !File.Exists(modulePath))
             return new Located(function, null, null);
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AINewtrend.Core.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e985d5b50ba023bfcb2f3a9266f8357c247ebc5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08befec5e9281ec85a73af5092d4e705effb20e6")]
 [assembly: System.Reflection.AssemblyProductAttribute("AINewtrend.Core.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AINewtrend.Core.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

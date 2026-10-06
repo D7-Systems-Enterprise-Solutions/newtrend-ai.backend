@@ -26,7 +26,11 @@ public sealed class ExecutionStep
     public DateTimeOffset StartedAt { get; set; }
     public SourceLocation? Source { get; set; }
     public int? HttpStatus { get; set; }
+    public string? HttpUrl { get; set; }
+    public string? HttpHeaders { get; set; }
+    public string? HttpBody { get; set; }
     public string? SqlText { get; set; }
+    public string Kind { get; set; } = "core";
 }
 
 public sealed class SourceLocation

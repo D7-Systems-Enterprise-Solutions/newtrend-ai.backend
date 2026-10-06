@@ -8,6 +8,7 @@ public sealed class LiveStore : ILiveStore
     private const int MaxExecutions = 50;
     private readonly object _gate = new();
     private readonly Dictionary<string, MutableExecution> _byTrace = new();
+    private readonly Dictionary<string, string> _burstByTrace = new();
 
     public IReadOnlyList<Execution> Apply(ExportTraceServiceRequest request)
     {
@@ -30,10 +31,31 @@ public sealed class LiveStore : ILiveStore
                             continue;
 
                         var traceId = SpanNormalizer.ToHex(span.TraceId);
-                        if (!_byTrace.TryGetValue(traceId, out var execution))
+                        var burst = SpanNormalizer.Burst(span);
+                        if (!string.IsNullOrWhiteSpace(burst))
+                            _burstByTrace[traceId] = burst;
+                        else if (_burstByTrace.TryGetValue(traceId, out var known))
+                            burst = known;
+
+                        var key = string.IsNullOrWhiteSpace(burst) ? traceId : burst;
+                        if (!string.IsNullOrWhiteSpace(burst)
+                            && key != traceId
+                            && _byTrace.TryGetValue(traceId, out var earlier))
                         {
-                            execution = new MutableExecution(traceId);
-                            _byTrace[traceId] = execution;
+                            if (!_byTrace.TryGetValue(key, out var burstExecution))
+                            {
+                                burstExecution = new MutableExecution(key);
+                                _byTrace[key] = burstExecution;
+                            }
+
+                            burstExecution.Absorb(earlier);
+                            _byTrace.Remove(traceId);
+                        }
+
+                        if (!_byTrace.TryGetValue(key, out var execution))
+                        {
+                            execution = new MutableExecution(key);
+                            _byTrace[key] = execution;
                         }
 
                         if (string.IsNullOrWhiteSpace(execution.ServiceName))
@@ -94,6 +116,24 @@ public sealed class LiveStore : ILiveStore
         public string? ApplicationVersion { get; set; }
         public ulong StartedUnixNano { get; private set; } = ulong.MaxValue;
         public int StepCount => _steps.Count;
+
+        public void Absorb(MutableExecution other)
+        {
+            foreach (var step in other._steps.Values)
+                _steps[step.SpanId] = step;
+
+            if (UserAction is null && other.UserAction is not null)
+                UserAction = other.UserAction;
+
+            if (string.IsNullOrWhiteSpace(ServiceName))
+                ServiceName = other.ServiceName;
+
+            if (string.IsNullOrWhiteSpace(ApplicationVersion))
+                ApplicationVersion = other.ApplicationVersion;
+
+            if (other.StartedUnixNano < StartedUnixNano)
+                StartedUnixNano = other.StartedUnixNano;
+        }
 
         public void Upsert(Span span)
         {

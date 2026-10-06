@@ -2,7 +2,7 @@
 
 Two things live here: the core that receives traces, and the .NET SDK you add to any API you want to watch.
 
-The Angular app sends a W3C `traceparent` header. `AddAINewtrend` continues that trace on incoming HTTP requests and exports spans to the core. SQL capture is not active yet. `ConnectionString` is accepted and unused.
+The Angular app sends a W3C `traceparent` header. `AddAINewtrend` continues that trace on incoming HTTP requests and exports spans to the core. SQL statements are captured by the official SqlClient instrumentation for every database command in the process. `ConnectionString` is accepted and unused.
 
 | Piece | Address |
 | --- | --- |
@@ -46,7 +46,9 @@ builder.Services.AddAINewtrend(options =>
 
 That is the whole registration. ASP.NET Core instrumentation creates the backend span for each incoming request and joins the trace from `traceparent`. On each response, the SDK reads the endpoint method and, from the PDB, its file and line. The Execution tab in the dashboard shows that path. A Debug build keeps the PDB beside the assembly. A build without symbols still shows the method name.
 
-`ConnectionString` can be set now and will be used when SQL instrumentation exists:
+Every EF Core command is recorded by the SDK from the EF diagnostic event, with the SQL text in `db.query.text`. You do not register anything on each `DbContext`. `options.AddAINewtrend()` remains as a no-op so existing registrations keep compiling. Commands that do not go through EF are recorded by `OpenTelemetry.Instrumentation.SqlClient`. Around each command, the SDK also records the application call chain: function, file, and line.
+
+`ConnectionString` is not used for that capture. Setting it has no effect:
 
 ```csharp
 options.ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
