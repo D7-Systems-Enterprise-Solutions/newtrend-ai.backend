@@ -1,34 +1,65 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\",
+  "WorkspaceRootPath": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EB8EB7A7-74A2-B480-7E05-1A13E1C369B6}|src\\AINewtrend.Sdk\\AINewtrend.Sdk.csproj|c:\\sources\\ai-newtrend\\ai-newtrend.backend\\src\\ainewtrend.sdk\\ainewtrendservicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB8EB7A7-74A2-B480-7E05-1A13E1C369B6}|src\\AINewtrend.Sdk\\AINewtrend.Sdk.csproj|solutionrelative:src\\ainewtrend.sdk\\ainewtrendservicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C5670656-8989-960D-EC8E-3E2051E08395}|tests\\AINewtrend.Core.Tests\\NewtrendAi.Core.Tests.csproj|c:\\sources\\dia7\\newtrend-ai\\newtrend-ai.backend\\tests\\ainewtrend.core.tests\\httpcurltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5670656-8989-960D-EC8E-3E2051E08395}|tests\\AINewtrend.Core.Tests\\NewtrendAi.Core.Tests.csproj|solutionrelative:tests\\ainewtrend.core.tests\\httpcurltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB8EB7A7-74A2-B480-7E05-1A13E1C369B6}|src\\AINewtrend.Sdk\\AINewtrend.Sdk.csproj|c:\\sources\\ai-newtrend\\ai-newtrend.backend\\src\\ainewtrend.sdk\\ainewtrendoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB8EB7A7-74A2-B480-7E05-1A13E1C369B6}|src\\AINewtrend.Sdk\\AINewtrend.Sdk.csproj|solutionrelative:src\\ainewtrend.sdk\\ainewtrendoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\AINewtrend.Core.csproj|c:\\sources\\ai-newtrend\\ai-newtrend.backend\\src\\ainewtrend.core\\ingest\\otlptraceendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\AINewtrend.Core.csproj|solutionrelative:src\\ainewtrend.core\\ingest\\otlptraceendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\AINewtrend.Core.csproj|c:\\sources\\ai-newtrend\\ai-newtrend.backend\\src\\ainewtrend.core\\ingest\\otlpjson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\AINewtrend.Core.csproj|c:\\sources\\dia7\\newtrend-ai\\newtrend-ai.backend\\src\\ainewtrend.core\\ingest\\otlpjson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\AINewtrend.Core.csproj|solutionrelative:src\\ainewtrend.core\\ingest\\otlpjson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\AINewtrend.Core.csproj|c:\\sources\\ai-newtrend\\ai-newtrend.backend\\src\\ainewtrend.core\\live\\iexecutionrecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\AINewtrend.Core.csproj|solutionrelative:src\\ainewtrend.core\\live\\iexecutionrecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EB8EB7A7-74A2-B480-7E05-1A13E1C369B6}|src\\AINewtrend.Sdk\\NewtrendAi.Sdk.csproj|c:\\sources\\dia7\\newtrend-ai\\newtrend-ai.backend\\src\\ainewtrend.sdk\\callchain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB8EB7A7-74A2-B480-7E05-1A13E1C369B6}|src\\AINewtrend.Sdk\\NewtrendAi.Sdk.csproj|solutionrelative:src\\ainewtrend.sdk\\callchain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\AINewtrend.Core.csproj|c:\\sources\\ai-newtrend\\ai-newtrend.backend\\src\\ainewtrend.core\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EB8EB7A7-74A2-B480-7E05-1A13E1C369B6}|src\\AINewtrend.Sdk\\NewtrendAi.Sdk.csproj|c:\\sources\\dia7\\newtrend-ai\\newtrend-ai.backend\\src\\ainewtrend.sdk\\efcommandchainlistener.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB8EB7A7-74A2-B480-7E05-1A13E1C369B6}|src\\AINewtrend.Sdk\\NewtrendAi.Sdk.csproj|solutionrelative:src\\ainewtrend.sdk\\efcommandchainlistener.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5670656-8989-960D-EC8E-3E2051E08395}|tests\\AINewtrend.Core.Tests\\NewtrendAi.Core.Tests.csproj|c:\\sources\\dia7\\newtrend-ai\\newtrend-ai.backend\\tests\\ainewtrend.core.tests\\sqlcapturetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5670656-8989-960D-EC8E-3E2051E08395}|tests\\AINewtrend.Core.Tests\\NewtrendAi.Core.Tests.csproj|solutionrelative:tests\\ainewtrend.core.tests\\sqlcapturetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB8EB7A7-74A2-B480-7E05-1A13E1C369B6}|src\\AINewtrend.Sdk\\NewtrendAi.Sdk.csproj|c:\\sources\\dia7\\newtrend-ai\\newtrend-ai.backend\\src\\ainewtrend.sdk\\newtrendaiservicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB8EB7A7-74A2-B480-7E05-1A13E1C369B6}|src\\AINewtrend.Sdk\\NewtrendAi.Sdk.csproj|solutionrelative:src\\ainewtrend.sdk\\newtrendaiservicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F545638-E0DE-0191-ED72-CBA473880BB8}|apps\\sample\\Sample.Api\\Sample.Api.csproj|c:\\sources\\dia7\\newtrend-ai\\newtrend-ai.backend\\apps\\sample\\sample.api\\sample.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3F545638-E0DE-0191-ED72-CBA473880BB8}|apps\\sample\\Sample.Api\\Sample.Api.csproj|solutionrelative:apps\\sample\\sample.api\\sample.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F545638-E0DE-0191-ED72-CBA473880BB8}|apps\\sample\\Sample.Api\\Sample.Api.csproj|c:\\sources\\dia7\\newtrend-ai\\newtrend-ai.backend\\apps\\sample\\sample.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F545638-E0DE-0191-ED72-CBA473880BB8}|apps\\sample\\Sample.Api\\Sample.Api.csproj|solutionrelative:apps\\sample\\sample.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB8EB7A7-74A2-B480-7E05-1A13E1C369B6}|src\\AINewtrend.Sdk\\NewtrendAi.Sdk.csproj|c:\\sources\\dia7\\newtrend-ai\\newtrend-ai.backend\\src\\ainewtrend.sdk\\newtrendai.sdk.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{EB8EB7A7-74A2-B480-7E05-1A13E1C369B6}|src\\AINewtrend.Sdk\\NewtrendAi.Sdk.csproj|solutionrelative:src\\ainewtrend.sdk\\newtrendai.sdk.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\AINewtrend.Core.csproj|c:\\sources\\dia7\\newtrend-ai\\newtrend-ai.backend\\src\\ainewtrend.core\\ingest\\otlptraceendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\AINewtrend.Core.csproj|solutionrelative:src\\ainewtrend.core\\ingest\\otlptraceendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\NewtrendAi.Core.csproj|c:\\sources\\dia7\\newtrend-ai\\newtrend-ai.backend\\src\\ainewtrend.core\\ai\\aiprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\NewtrendAi.Core.csproj|solutionrelative:src\\ainewtrend.core\\ai\\aiprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\AINewtrend.Core.csproj|c:\\sources\\dia7\\newtrend-ai\\newtrend-ai.backend\\src\\ainewtrend.core\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\AINewtrend.Core.csproj|solutionrelative:src\\ainewtrend.core\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3F545638-E0DE-0191-ED72-CBA473880BB8}|apps\\sample\\Sample.Api\\Sample.Api.csproj|c:\\sources\\ai-newtrend\\ai-newtrend.backend\\apps\\sample\\sample.api\\sample.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{3F545638-E0DE-0191-ED72-CBA473880BB8}|apps\\sample\\Sample.Api\\Sample.Api.csproj|solutionrelative:apps\\sample\\sample.api\\sample.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\NewtrendAi.Core.csproj|c:\\sources\\dia7\\newtrend-ai\\newtrend-ai.backend\\src\\ainewtrend.core\\recording\\sessionstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\NewtrendAi.Core.csproj|solutionrelative:src\\ainewtrend.core\\recording\\sessionstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\AINewtrend.Core.csproj|c:\\sources\\dia7\\newtrend-ai\\newtrend-ai.backend\\src\\ainewtrend.core\\live\\iexecutionrecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DEDC072-428E-ACFB-5248-6909757366F0}|src\\AINewtrend.Core\\AINewtrend.Core.csproj|solutionrelative:src\\ainewtrend.core\\live\\iexecutionrecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\AINewtrendOptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +69,102 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 22,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EfCommandChainListener.cs",
+              "DocumentMoniker": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Sdk\\EfCommandChainListener.cs",
+              "RelativeDocumentMoniker": "src\\AINewtrend.Sdk\\EfCommandChainListener.cs",
+              "ToolTip": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Sdk\\EfCommandChainListener.cs",
+              "RelativeToolTip": "src\\AINewtrend.Sdk\\EfCommandChainListener.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAywGUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T22:04:48.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CallChain.cs",
+              "DocumentMoniker": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Sdk\\CallChain.cs",
+              "RelativeDocumentMoniker": "src\\AINewtrend.Sdk\\CallChain.cs",
+              "ToolTip": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Sdk\\CallChain.cs",
+              "RelativeToolTip": "src\\AINewtrend.Sdk\\CallChain.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAuwA8AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T22:00:50.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NewtrendAiServiceCollectionExtensions.cs",
+              "DocumentMoniker": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Sdk\\NewtrendAiServiceCollectionExtensions.cs",
+              "RelativeDocumentMoniker": "src\\AINewtrend.Sdk\\NewtrendAiServiceCollectionExtensions.cs",
+              "ToolTip": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Sdk\\NewtrendAiServiceCollectionExtensions.cs",
+              "RelativeToolTip": "src\\AINewtrend.Sdk\\NewtrendAiServiceCollectionExtensions.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAqwEIAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T21:59:17.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:142:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:143:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:145:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:146:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:141:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:144:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:138:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:139:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:140:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Bookmark",
@@ -54,96 +176,161 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AINewtrendServiceCollectionExtensions.cs",
-              "DocumentMoniker": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\AINewtrendServiceCollectionExtensions.cs",
-              "RelativeDocumentMoniker": "src\\AINewtrend.Sdk\\AINewtrendServiceCollectionExtensions.cs",
-              "ToolTip": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\AINewtrendServiceCollectionExtensions.cs",
-              "RelativeToolTip": "src\\AINewtrend.Sdk\\AINewtrendServiceCollectionExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "SqlCaptureTests.cs",
+              "DocumentMoniker": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\tests\\AINewtrend.Core.Tests\\SqlCaptureTests.cs",
+              "RelativeDocumentMoniker": "tests\\AINewtrend.Core.Tests\\SqlCaptureTests.cs",
+              "ToolTip": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\tests\\AINewtrend.Core.Tests\\SqlCaptureTests.cs",
+              "RelativeToolTip": "tests\\AINewtrend.Core.Tests\\SqlCaptureTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-30T03:44:10.586Z",
+              "WhenOpened": "2026-10-07T21:58:07.727Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "OtlpTraceEndpoint.cs",
-              "DocumentMoniker": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Core\\Ingest\\OtlpTraceEndpoint.cs",
-              "RelativeDocumentMoniker": "src\\AINewtrend.Core\\Ingest\\OtlpTraceEndpoint.cs",
-              "ToolTip": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Core\\Ingest\\OtlpTraceEndpoint.cs",
-              "RelativeToolTip": "src\\AINewtrend.Core\\Ingest\\OtlpTraceEndpoint.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-30T03:44:52.557Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OtlpJson.cs",
-              "DocumentMoniker": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Core\\Ingest\\OtlpJson.cs",
-              "RelativeDocumentMoniker": "src\\AINewtrend.Core\\Ingest\\OtlpJson.cs",
-              "ToolTip": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Core\\Ingest\\OtlpJson.cs",
-              "RelativeToolTip": "src\\AINewtrend.Core\\Ingest\\OtlpJson.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-30T03:44:46.055Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IExecutionRecorder.cs",
-              "DocumentMoniker": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Core\\Live\\IExecutionRecorder.cs",
-              "RelativeDocumentMoniker": "src\\AINewtrend.Core\\Live\\IExecutionRecorder.cs",
-              "ToolTip": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Core\\Live\\IExecutionRecorder.cs",
-              "RelativeToolTip": "src\\AINewtrend.Core\\Live\\IExecutionRecorder.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-30T03:44:37.837Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Core\\Program.cs",
-              "RelativeDocumentMoniker": "src\\AINewtrend.Core\\Program.cs",
-              "ToolTip": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Core\\Program.cs",
-              "RelativeToolTip": "src\\AINewtrend.Core\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\apps\\sample\\Sample.Api\\Program.cs",
+              "RelativeDocumentMoniker": "apps\\sample\\Sample.Api\\Program.cs",
+              "ToolTip": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\apps\\sample\\Sample.Api\\Program.cs",
+              "RelativeToolTip": "apps\\sample\\Sample.Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-30T03:43:49.543Z"
+              "WhenOpened": "2026-10-07T21:57:18.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HttpCurlTests.cs",
+              "DocumentMoniker": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\tests\\AINewtrend.Core.Tests\\HttpCurlTests.cs",
+              "RelativeDocumentMoniker": "tests\\AINewtrend.Core.Tests\\HttpCurlTests.cs",
+              "ToolTip": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\tests\\AINewtrend.Core.Tests\\HttpCurlTests.cs",
+              "RelativeToolTip": "tests\\AINewtrend.Core.Tests\\HttpCurlTests.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAUwGIAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T21:52:23.026Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AINewtrendOptions.cs",
-              "DocumentMoniker": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\AINewtrendOptions.cs",
-              "RelativeDocumentMoniker": "src\\AINewtrend.Sdk\\AINewtrendOptions.cs",
-              "ToolTip": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\AINewtrendOptions.cs",
-              "RelativeToolTip": "src\\AINewtrend.Sdk\\AINewtrendOptions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "OtlpJson.cs",
+              "DocumentMoniker": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Core\\Ingest\\OtlpJson.cs",
+              "RelativeDocumentMoniker": "src\\AINewtrend.Core\\Ingest\\OtlpJson.cs",
+              "ToolTip": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Core\\Ingest\\OtlpJson.cs",
+              "RelativeToolTip": "src\\AINewtrend.Core\\Ingest\\OtlpJson.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-30T03:43:22.644Z"
+              "WhenOpened": "2026-09-30T03:44:46.055Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AiProvider.cs",
+              "DocumentMoniker": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Core\\Ai\\AiProvider.cs",
+              "RelativeDocumentMoniker": "src\\AINewtrend.Core\\Ai\\AiProvider.cs",
+              "ToolTip": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Core\\Ai\\AiProvider.cs",
+              "RelativeToolTip": "src\\AINewtrend.Core\\Ai\\AiProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T21:50:10.488Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "Sample.Api.csproj",
-              "DocumentMoniker": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\apps\\sample\\Sample.Api\\Sample.Api.csproj",
+              "DocumentMoniker": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\apps\\sample\\Sample.Api\\Sample.Api.csproj",
               "RelativeDocumentMoniker": "apps\\sample\\Sample.Api\\Sample.Api.csproj",
-              "ToolTip": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\apps\\sample\\Sample.Api\\Sample.Api.csproj",
+              "ToolTip": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\apps\\sample\\Sample.Api\\Sample.Api.csproj",
               "RelativeToolTip": "apps\\sample\\Sample.Api\\Sample.Api.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-09-30T03:32:52.769Z"
+              "WhenOpened": "2026-09-30T03:32:52.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SessionStore.cs",
+              "DocumentMoniker": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Core\\Recording\\SessionStore.cs",
+              "RelativeDocumentMoniker": "src\\AINewtrend.Core\\Recording\\SessionStore.cs",
+              "ToolTip": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Core\\Recording\\SessionStore.cs",
+              "RelativeToolTip": "src\\AINewtrend.Core\\Recording\\SessionStore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T21:49:33.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "NewtrendAi.Sdk",
+              "DocumentMoniker": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Sdk\\NewtrendAi.Sdk.csproj",
+              "RelativeDocumentMoniker": "src\\AINewtrend.Sdk\\NewtrendAi.Sdk.csproj",
+              "ToolTip": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Sdk\\NewtrendAi.Sdk.csproj",
+              "RelativeToolTip": "src\\AINewtrend.Sdk\\NewtrendAi.Sdk.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-07T21:47:49.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "OtlpTraceEndpoint.cs",
+              "DocumentMoniker": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Core\\Ingest\\OtlpTraceEndpoint.cs",
+              "RelativeDocumentMoniker": "src\\AINewtrend.Core\\Ingest\\OtlpTraceEndpoint.cs",
+              "ToolTip": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Core\\Ingest\\OtlpTraceEndpoint.cs",
+              "RelativeToolTip": "src\\AINewtrend.Core\\Ingest\\OtlpTraceEndpoint.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-30T03:44:52.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IExecutionRecorder.cs",
+              "DocumentMoniker": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Core\\Live\\IExecutionRecorder.cs",
+              "RelativeDocumentMoniker": "src\\AINewtrend.Core\\Live\\IExecutionRecorder.cs",
+              "ToolTip": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Core\\Live\\IExecutionRecorder.cs",
+              "RelativeToolTip": "src\\AINewtrend.Core\\Live\\IExecutionRecorder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-30T03:44:37.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Core\\Program.cs",
+              "RelativeDocumentMoniker": "src\\AINewtrend.Core\\Program.cs",
+              "ToolTip": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Core\\Program.cs",
+              "RelativeToolTip": "src\\AINewtrend.Core\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-30T03:43:49.543Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AINewtrendOptions.cs",
+              "DocumentMoniker": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\AINewtrendOptions.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\AINewtrendOptions.cs",
+              "ToolTip": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\AINewtrendOptions.cs",
+              "RelativeToolTip": "..\\..\\..\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\AINewtrendOptions.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-30T03:43:22.644Z"
             }
           ]
         }

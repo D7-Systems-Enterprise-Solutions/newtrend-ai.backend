@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 3,
   "targets": {
     "net9.0": {
       "Ben.Demystifier/0.4.1": {
@@ -1162,7 +1162,7 @@
           "build/net8.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "AINewtrend.Core/1.0.0": {
+      "NewtrendAi.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
@@ -1170,16 +1170,16 @@
           "Microsoft.Data.Sqlite": "9.0.9"
         },
         "compile": {
-          "bin/placeholder/AINewtrend.Core.dll": {}
+          "bin/placeholder/NewtrendAi.Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/AINewtrend.Core.dll": {}
+          "bin/placeholder/NewtrendAi.Core.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
       },
-      "AINewtrend.Sdk/1.0.0": {
+      "NewtrendAi.Sdk/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
@@ -1191,10 +1191,10 @@
           "OpenTelemetry.Instrumentation.SqlClient": "1.19.0"
         },
         "compile": {
-          "bin/placeholder/AINewtrend.Sdk.dll": {}
+          "bin/placeholder/NewtrendAi.Sdk.dll": {}
         },
         "runtime": {
-          "bin/placeholder/AINewtrend.Sdk.dll": {}
+          "bin/placeholder/NewtrendAi.Sdk.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -2725,45 +2725,44 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "AINewtrend.Core/1.0.0": {
+    "NewtrendAi.Core/1.0.0": {
       "type": "project",
-      "path": "../../src/AINewtrend.Core/AINewtrend.Core.csproj",
-      "msbuildProject": "../../src/AINewtrend.Core/AINewtrend.Core.csproj"
+      "path": "../../src/AINewtrend.Core/NewtrendAi.Core.csproj",
+      "msbuildProject": "../../src/AINewtrend.Core/NewtrendAi.Core.csproj"
     },
-    "AINewtrend.Sdk/1.0.0": {
+    "NewtrendAi.Sdk/1.0.0": {
       "type": "project",
-      "path": "../../src/AINewtrend.Sdk/AINewtrend.Sdk.csproj",
-      "msbuildProject": "../../src/AINewtrend.Sdk/AINewtrend.Sdk.csproj"
+      "path": "../../src/AINewtrend.Sdk/NewtrendAi.Sdk.csproj",
+      "msbuildProject": "../../src/AINewtrend.Sdk/NewtrendAi.Sdk.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "AINewtrend.Core >= 1.0.0",
-      "AINewtrend.Sdk >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.14.1",
+      "NewtrendAi.Core >= 1.0.0",
+      "NewtrendAi.Sdk >= 1.0.0",
       "xunit >= 2.9.3",
       "xunit.runner.visualstudio >= 3.1.4"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Manuel\\AppData\\Local\\Temp\\cursor-sandbox-cache\\08cd4715716965d1389e6b4a8b3f1e58\\nuget": {},
+    "C:\\Users\\MSI\\AppData\\Local\\Temp\\cursor-sandbox-cache\\92864556a2c339d085686009d9472bf5\\nuget": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\tests\\AINewtrend.Core.Tests\\AINewtrend.Core.Tests.csproj",
-      "projectName": "AINewtrend.Core.Tests",
-      "projectPath": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\tests\\AINewtrend.Core.Tests\\AINewtrend.Core.Tests.csproj",
-      "packagesPath": "C:\\Users\\Manuel\\AppData\\Local\\Temp\\cursor-sandbox-cache\\08cd4715716965d1389e6b4a8b3f1e58\\nuget",
-      "outputPath": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\tests\\AINewtrend.Core.Tests\\obj\\",
+      "projectUniqueName": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\tests\\AINewtrend.Core.Tests\\NewtrendAi.Core.Tests.csproj",
+      "projectName": "NewtrendAi.Core.Tests",
+      "projectPath": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\tests\\AINewtrend.Core.Tests\\NewtrendAi.Core.Tests.csproj",
+      "packagesPath": "C:\\Users\\MSI\\AppData\\Local\\Temp\\cursor-sandbox-cache\\92864556a2c339d085686009d9472bf5\\nuget",
+      "outputPath": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\tests\\AINewtrend.Core.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Manuel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.1.config",
+        "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2771,21 +2770,18 @@
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\DevExpress 18.1\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
-          "framework": "net9.0",
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Core\\AINewtrend.Core.csproj": {
-              "projectPath": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Core\\AINewtrend.Core.csproj"
+            "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Core\\NewtrendAi.Core.csproj": {
+              "projectPath": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Core\\NewtrendAi.Core.csproj"
             },
-            "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\AINewtrend.Sdk.csproj": {
-              "projectPath": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\AINewtrend.Sdk.csproj"
+            "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Sdk\\NewtrendAi.Sdk.csproj": {
+              "projectPath": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\AINewtrend.Sdk\\NewtrendAi.Sdk.csproj"
             }
           }
         }
@@ -2800,11 +2796,10 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.400"
+      "SdkAnalysisLevel": "10.0.300"
     },
     "frameworks": {
       "net9.0": {
-        "framework": "net9.0",
         "targetAlias": "net9.0",
         "dependencies": {
           "Microsoft.NET.Test.Sdk": {
@@ -2839,7 +2834,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
