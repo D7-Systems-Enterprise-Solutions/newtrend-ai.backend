@@ -51,6 +51,21 @@ public class HttpCurlTests
     }
 
     [Fact]
+    public void Collector_calls_are_the_tracer_itself()
+    {
+        var own = new Span { Name = "POST /v1/traces", Kind = Span.Types.SpanKind.Client };
+        Add(own, "http.method", "POST");
+        Add(own, "url.full", "http://127.0.0.1:4318/v1/traces");
+
+        var application = new Span { Name = "GET /api/meters", Kind = Span.Types.SpanKind.Client };
+        Add(application, "http.method", "GET");
+        Add(application, "url.full", "https://host/api/meters");
+
+        Assert.True(SpanNormalizer.IsOwnProcess(own));
+        Assert.False(SpanNormalizer.IsOwnProcess(application));
+    }
+
+    [Fact]
     public void Mask_keeps_the_bearer_on_the_http_step()
     {
         var execution = new Execution

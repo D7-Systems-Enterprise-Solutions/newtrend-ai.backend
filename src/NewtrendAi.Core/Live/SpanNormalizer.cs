@@ -30,8 +30,8 @@ public static partial class SpanNormalizer
             Source = ReadSource(span),
             HttpStatus = httpStatus,
             HttpUrl = Attribute(span, "url.full"),
-            HttpHeaders = Attribute(span, "ai.newtrend.http.headers"),
-            HttpBody = Attribute(span, "ai.newtrend.http.body"),
+            HttpHeaders = Attribute(span, "newtrend.ai.http.headers"),
+            HttpBody = Attribute(span, "newtrend.ai.http.body"),
             SqlText = Privacy.Masker.Mask(ReadSql(span)),
         };
         step.Kind = ClassifyKind(step.Name, step.SqlText, step.Source?.Function);
@@ -53,11 +53,30 @@ public static partial class SpanNormalizer
     }
 
     public static string? UserAction(Span span)
-        => Attribute(span, "ai.newtrend.user_action");
+        => Attribute(span, "newtrend.ai.user_action");
+
+    public static string? Build(Span span)
+        => Attribute(span, "newtrend.ai.build");
+
+    public static bool IsOwnProcess(Span span)
+        => IsCollectorTarget(Route(span))
+            || IsCollectorTarget(Attribute(span, "url.full"))
+            || IsCollectorTarget(Attribute(span, "http.url"))
+            || IsCollectorTarget(span.Name);
+
+    private static bool IsCollectorTarget(string? value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+            return false;
+
+        return value.Contains("/v1/traces", StringComparison.OrdinalIgnoreCase)
+            || value.Contains(":4318", StringComparison.Ordinal)
+            || value.Contains(":4319", StringComparison.Ordinal);
+    }
 
     public static string? Burst(Span span)
     {
-        var attribute = Attribute(span, "ai.newtrend.burst");
+        var attribute = Attribute(span, "newtrend.ai.burst");
         if (!string.IsNullOrWhiteSpace(attribute))
             return attribute;
 
@@ -72,10 +91,11 @@ public static partial class SpanNormalizer
         foreach (var member in traceState.Split(','))
         {
             var piece = member.Trim();
-            const string prefix = "ai-newtrend=";
-            if (piece.StartsWith(prefix, StringComparison.Ordinal))
+            const string prefix = "newtrend-ai=";
+            const string legacy = "ai-newtrend=";
+            if (piece.StartsWith(prefix, StringComparison.OrdinalIgnoreCase) || piece.StartsWith(legacy, StringComparison.OrdinalIgnoreCase))
             {
-                var value = piece[prefix.Length..];
+                var value = piece[(piece.StartsWith(prefix, StringComparison.OrdinalIgnoreCase) ? prefix.Length : legacy.Length)..];
                 return string.IsNullOrWhiteSpace(value) ? null : value;
             }
         }
@@ -110,14 +130,14 @@ public static partial class SpanNormalizer
 
     private static string Classify(Span span)
     {
-        var layer = Attribute(span, "ai.newtrend.layer");
+        var layer = Attribute(span, "newtrend.ai.layer");
         if (layer is "frontend" or "http" or "backend" or "sql")
             return Capitalize(layer);
 
         if (ReadSql(span) is not null)
             return "Sql";
 
-        if (Attribute(span, "ai.newtrend.user_action") is not null)
+        if (Attribute(span, "newtrend.ai.user_action") is not null)
             return "Frontend";
 
         if (span.Kind == Span.Types.SpanKind.Client && HasHttp(span))

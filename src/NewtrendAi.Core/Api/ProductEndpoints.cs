@@ -13,6 +13,28 @@ public static class ProductEndpoints
 {
     public static void Map(WebApplication app, string workspace)
     {
+        app.MapDelete("/api/session", async (ILiveStore live, LiveBroadcaster broadcaster) =>
+        {
+            live.Clear();
+            await broadcaster.BroadcastAsync();
+            return Results.NoContent();
+        });
+
+        app.MapPost("/api/session/trace", (ILiveStore live) =>
+        {
+            live.StartNewTrace();
+            return Results.NoContent();
+        });
+
+        app.MapPut("/api/session/burst-limit", (BurstLimitBody body, ILiveStore live) =>
+        {
+            if (body.MaxItems < 1 || body.MaxItems > LiveStore.MaxBurstItems)
+                return Results.BadRequest(new { error = "Maximum items must be from 1 to 350." });
+
+            live.SetMaxBurstItems(body.MaxItems);
+            return Results.NoContent();
+        });
+
         app.MapPost("/api/investigations", (CreateInvestigation body, SessionStore store) =>
         {
             if (string.IsNullOrWhiteSpace(body.Name))
@@ -268,6 +290,7 @@ public static class ProductEndpoints
     }
 }
 
+public sealed record BurstLimitBody(int MaxItems);
 public sealed record CreateInvestigation(string Name, string? Objective, string? ApplicationVersion);
 public sealed record PatchInvestigation(string? Name, string? Objective, string? Status, string? ApplicationVersion);
 public sealed record AttachExecution(string TraceId);

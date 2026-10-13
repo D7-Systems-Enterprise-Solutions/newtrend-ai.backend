@@ -119,7 +119,7 @@ internal static class EfCommandChainListener
         if (!Inflight.TryRemove(commandId, out var activities))
             return;
 
-        if (activities.Any(activity => activity.GetTagItem("ai.newtrend.layer") as string == "sql")
+        if (activities.Any(activity => activity.GetTagItem("newtrend.ai.layer") as string == "sql")
             && EfDepth.Value > 0)
             EfDepth.Value--;
 

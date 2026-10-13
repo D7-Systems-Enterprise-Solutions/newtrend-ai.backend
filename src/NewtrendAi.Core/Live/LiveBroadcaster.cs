@@ -64,44 +64,27 @@ public sealed class LiveBroadcaster
 
     public async Task BroadcastAsync()
     {
-        var payload = SnapshotBytes();
-        foreach (var (id, socket) in _clients)
-        {
-            if (socket.State != WebSocketState.Open)
-            {
-                _clients.TryRemove(id, out _);
-                continue;
-            }
-
-            try
-            {
-                await SendAsync(socket, payload);
-            }
-            catch (WebSocketException)
-            {
-                _clients.TryRemove(id, out _);
-            }
-        }
-    }
-
-    private async Task SendSnapshotAsync(WebSocket socket, CancellationToken cancellationToken)
-    {
-        await SendAsync(socket, SnapshotBytes(), cancellationToken);
-    }
-
-    private byte[] SnapshotBytes()
-    {
-        var snapshot = new LiveSnapshot("snapshot", _store.Snapshot());
-        return JsonSerializer.SerializeToUtf8Bytes(snapshot, JsonOptions);
-    }
-
-    private async Task SendAsync(WebSocket socket, byte[] payload, CancellationToken cancellationToken = default)
-    {
-        await _sendLock.WaitAsync(cancellationToken);
+        await _sendLock.WaitAsync();
         try
         {
-            if (socket.State == WebSocketState.Open)
-                await socket.SendAsync(payload, WebSocketMessageType.Text, true, cancellationToken);
+            var payload = SnapshotBytes();
+            foreach (var (id, socket) in _clients)
+            {
+                if (socket.State != WebSocketState.Open)
+                {
+                    _clients.TryRemove(id, out _);
+                    continue;
+                }
+
+                try
+                {
+                    await SendCore(socket, payload);
+                }
+                catch (WebSocketException)
+                {
+                    _clients.TryRemove(id, out _);
+                }
+            }
         }
         finally
         {
@@ -109,5 +92,31 @@ public sealed class LiveBroadcaster
         }
     }
 
-    private sealed record LiveSnapshot(string Type, IReadOnlyList<Execution> Executions);
+    private async Task SendSnapshotAsync(WebSocket socket, CancellationToken cancellationToken)
+    {
+        await _sendLock.WaitAsync(cancellationToken);
+        try
+        {
+            await SendCore(socket, SnapshotBytes(), cancellationToken);
+        }
+        finally
+        {
+            _sendLock.Release();
+        }
+    }
+
+    private byte[] SnapshotBytes()
+    {
+        var capture = _store.Capture();
+        var snapshot = new LiveSnapshot("snapshot", capture.Executions, capture.Epoch);
+        return JsonSerializer.SerializeToUtf8Bytes(snapshot, JsonOptions);
+    }
+
+    private static async Task SendCore(WebSocket socket, byte[] payload, CancellationToken cancellationToken = default)
+    {
+        if (socket.State == WebSocketState.Open)
+            await socket.SendAsync(payload, WebSocketMessageType.Text, true, cancellationToken);
+    }
+
+    private sealed record LiveSnapshot(string Type, IReadOnlyList<Execution> Executions, long Epoch);
 }

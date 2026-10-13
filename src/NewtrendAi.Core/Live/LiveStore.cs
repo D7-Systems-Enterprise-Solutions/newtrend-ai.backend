@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Logging;
 using OpenTelemetry.Proto.Collector.Trace.V1;
 using OpenTelemetry.Proto.Trace.V1;
 
@@ -5,10 +6,17 @@ namespace NewtrendAi.Core.Live;
 
 public sealed class LiveStore : ILiveStore
 {
+    public const int MaxBurstItems = 350;
     private const int MaxExecutions = 50;
+    private readonly ILogger<LiveStore> _logger;
     private readonly object _gate = new();
     private readonly Dictionary<string, MutableExecution> _byTrace = new();
     private readonly Dictionary<string, string> _burstByTrace = new();
+    private readonly Dictionary<string, string> _nextGroup = new();
+    private long _epoch;
+    private int _maxSteps = MaxBurstItems;
+
+    public LiveStore(ILogger<LiveStore> logger) => _logger = logger;
 
     public IReadOnlyList<Execution> Apply(ExportTraceServiceRequest request)
     {
@@ -33,12 +41,26 @@ public sealed class LiveStore : ILiveStore
                         var traceId = SpanNormalizer.ToHex(span.TraceId);
                         var burst = SpanNormalizer.Burst(span);
                         if (!string.IsNullOrWhiteSpace(burst))
-                            _burstByTrace[traceId] = burst;
+                            burst = ResolveGroup(burst);
                         else if (_burstByTrace.TryGetValue(traceId, out var known))
                             burst = known;
 
-                        var key = string.IsNullOrWhiteSpace(burst) ? traceId : burst;
-                        if (!string.IsNullOrWhiteSpace(burst)
+                        if (!string.IsNullOrWhiteSpace(burst))
+                            _burstByTrace[traceId] = burst;
+
+                        var naturalKey = string.IsNullOrWhiteSpace(burst) ? traceId : burst;
+                        var key = ResolveGroup(naturalKey);
+                        var action = SpanNormalizer.UserAction(span);
+                        if (!string.IsNullOrWhiteSpace(action))
+                            _logger.LogInformation(
+                                "Frontend span {UserAction} build {Build} trace {TraceId} burst {Burst} key {Key}.",
+                                action,
+                                SpanNormalizer.Build(span),
+                                traceId,
+                                burst,
+                                key);
+                        if (key == naturalKey
+                            && !string.IsNullOrWhiteSpace(burst)
                             && key != traceId
                             && _byTrace.TryGetValue(traceId, out var earlier))
                         {
@@ -64,6 +86,19 @@ public sealed class LiveStore : ILiveStore
                         if (string.IsNullOrWhiteSpace(execution.ApplicationVersion))
                             execution.ApplicationVersion = version;
 
+                        if (execution.StepCount >= _maxSteps && execution.AcceptsNew(span))
+                        {
+                            var rotated = Guid.NewGuid().ToString("N");
+                            _nextGroup[key] = rotated;
+                            key = rotated;
+                            execution = new MutableExecution(key);
+                            _byTrace[key] = execution;
+                            if (string.IsNullOrWhiteSpace(execution.ServiceName))
+                                execution.ServiceName = serviceName;
+                            if (string.IsNullOrWhiteSpace(execution.ApplicationVersion))
+                                execution.ApplicationVersion = version;
+                        }
+
                         execution.Upsert(span);
                     }
                 }
@@ -81,6 +116,54 @@ public sealed class LiveStore : ILiveStore
     {
         lock (_gate)
             return SnapshotUnsafe();
+    }
+
+    public LiveCapture Capture()
+    {
+        lock (_gate)
+            return new LiveCapture(_epoch, SnapshotUnsafe());
+    }
+
+    public void Clear()
+    {
+        lock (_gate)
+        {
+            _byTrace.Clear();
+            _burstByTrace.Clear();
+            _nextGroup.Clear();
+            _epoch++;
+        }
+    }
+
+    public void SetMaxBurstItems(int maxItems)
+    {
+        if (maxItems < 1 || maxItems > MaxBurstItems)
+            throw new ArgumentOutOfRangeException(nameof(maxItems));
+
+        lock (_gate)
+            _maxSteps = maxItems;
+    }
+
+    public void StartNewTrace()
+    {
+        lock (_gate)
+        {
+            foreach (var key in _byTrace.Keys.Concat(_burstByTrace.Values).Distinct())
+            {
+                if (_nextGroup.ContainsKey(key))
+                    continue;
+
+                _nextGroup[key] = Guid.NewGuid().ToString("N");
+            }
+        }
+    }
+
+    private string ResolveGroup(string key)
+    {
+        for (var hop = 0; hop < 8 && _nextGroup.TryGetValue(key, out var next); hop++)
+            key = next;
+
+        return key;
     }
 
     private void Trim()
@@ -135,8 +218,23 @@ public sealed class LiveStore : ILiveStore
                 StartedUnixNano = other.StartedUnixNano;
         }
 
+        public bool AcceptsNew(Span span)
+        {
+            if (SpanNormalizer.IsOwnProcess(span))
+                return false;
+
+            var step = SpanNormalizer.ToStep(span);
+            if (step.Name.StartsWith("OPTIONS ", StringComparison.OrdinalIgnoreCase))
+                return false;
+
+            return !_steps.ContainsKey(step.SpanId);
+        }
+
         public void Upsert(Span span)
         {
+            if (SpanNormalizer.IsOwnProcess(span))
+                return;
+
             var step = SpanNormalizer.ToStep(span);
             if (step.Name.StartsWith("OPTIONS ", StringComparison.OrdinalIgnoreCase))
                 return;
