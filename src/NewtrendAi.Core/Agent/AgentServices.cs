@@ -142,14 +142,25 @@ public sealed class GetInvestigationTool(ToolContext context) : IAgentTool
     }
 }
 
+public sealed class RootCauseFindings
+{
+    public List<string> Evidence { get; init; } = [];
+    public string Hypothesis { get; init; } = "";
+    public string Confidence { get; init; } = "";
+    public string[] RelatedFiles { get; init; } = [];
+    public string Kind { get; init; } = "Inferred";
+}
+
 public static class RootCauseEngine
 {
     public static object Investigate(SessionStore store, string executionId)
     {
         var execution = store.GetExecution(executionId);
-        if (execution is null)
-            return new { found = false };
+        return execution is null ? new { found = false } : Investigate(execution);
+    }
 
+    public static RootCauseFindings Investigate(Execution execution)
+    {
         var failing = execution.Steps.FirstOrDefault(step => step.Status == "failed");
         var evidence = new List<string>();
         if (execution.Error is not null)
@@ -164,12 +175,12 @@ public static class RootCauseEngine
             ? "Inferred: no failing step was recorded."
             : $"Inferred: the failure is associated with {failing.Name}, which is a hypothesis until the source confirms it.";
 
-        return new
+        return new RootCauseFindings
         {
             Evidence = evidence,
             Hypothesis = hypothesis,
             Confidence = failing?.Source is null ? "Low" : "Medium",
-            RelatedFiles = execution.Steps.Select(step => step.Source?.File).Where(file => file is not null).Distinct().ToArray(),
+            RelatedFiles = execution.Steps.Select(step => step.Source?.File).OfType<string>().Distinct().ToArray(),
             Kind = "Inferred",
         };
     }

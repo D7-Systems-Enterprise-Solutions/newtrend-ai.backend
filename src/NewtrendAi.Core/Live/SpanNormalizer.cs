@@ -29,9 +29,9 @@ public static partial class SpanNormalizer
                 : DateTimeOffset.FromUnixTimeMilliseconds(unchecked((long)(span.StartTimeUnixNano / 1_000_000))),
             Source = ReadSource(span),
             HttpStatus = httpStatus,
-            HttpUrl = Attribute(span, "url.full"),
-            HttpHeaders = Attribute(span, "newtrend.ai.http.headers"),
-            HttpBody = Attribute(span, "newtrend.ai.http.body"),
+            HttpUrl = Privacy.Masker.Mask(Attribute(span, "url.full")),
+            HttpHeaders = Privacy.Masker.Mask(Attribute(span, "newtrend.ai.http.headers")),
+            HttpBody = Privacy.Masker.Mask(Attribute(span, "newtrend.ai.http.body")),
             SqlText = Privacy.Masker.Mask(ReadSql(span)),
         };
         step.Kind = ClassifyKind(step.Name, step.SqlText, step.Source?.Function);

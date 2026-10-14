@@ -10,6 +10,6 @@ public interface ILiveStore
     IReadOnlyList<Execution> Snapshot();
     LiveCapture Capture();
     void Clear();
-    void StartNewTrace();
+    void StartNewTrace(string? traceId = null);
     void SetMaxBurstItems(int maxItems);
 }
