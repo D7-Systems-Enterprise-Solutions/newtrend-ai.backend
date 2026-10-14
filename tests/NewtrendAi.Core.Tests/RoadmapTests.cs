@@ -33,6 +33,29 @@ public class RoadmapTests
     }
 
     [Fact]
+    public void Masker_hides_secrets_in_http_headers_bodies_and_urls()
+    {
+        var execution = ExecutionOf("Save Provider", new ExecutionStep
+        {
+            SpanId = "span",
+            Layer = "Http",
+            Name = "POST /providers",
+            HttpUrl = "https://example.test/save?access_token=url-secret&mode=fast",
+            HttpHeaders = "Authorization: Bearer header-secret\nCookie: session=cookie-secret\nContent-Type: application/json",
+            HttpBody = "{\"password\":\"body-secret\",\"name\":\"Acme\"}",
+        });
+
+        Masker.MaskExecution(execution);
+
+        var serialized = System.Text.Json.JsonSerializer.Serialize(execution);
+        Assert.DoesNotContain("url-secret", serialized);
+        Assert.DoesNotContain("header-secret", serialized);
+        Assert.DoesNotContain("cookie-secret", serialized);
+        Assert.DoesNotContain("body-secret", serialized);
+        Assert.Contains("Acme", serialized);
+    }
+
+    [Fact]
     public void Save_provider_diff_reports_only_the_audit_insert()
     {
         var baseline = ExecutionOf("Save Provider", Step("Http", "POST /providers"), Step("Sql", "INSERT Provider", "INSERT INTO Provider (Name) VALUES ('Acme')"));
@@ -109,11 +132,16 @@ public class RoadmapTests
         var bytes = InvestigationAnalysis.Package(investigation, [], [execution]);
         using var archive = new ZipArchive(new MemoryStream(bytes));
         var names = archive.Entries.Select(entry => entry.Name).OrderBy(name => name).ToArray();
-        Assert.Equal(["ai-context.txt", "errors.json", "investigation.json", "performance.json", "source-map.json", "trace.json"], names);
+        Assert.Equal(["ai-context.txt", "errors.json", "evidence.json", "investigation.json", "performance.json", "source-map.json", "trace.json"], names);
 
         using var reader = new StreamReader(archive.GetEntry("trace.json")!.Open());
         var trace = reader.ReadToEnd();
         Assert.DoesNotContain("super-secret", trace);
+
+        using var evidenceReader = new StreamReader(archive.GetEntry("evidence.json")!.Open());
+        var evidence = evidenceReader.ReadToEnd();
+        Assert.Contains("Inferred:", evidence);
+        Assert.DoesNotContain("super-secret", evidence);
     }
 
     [Fact]

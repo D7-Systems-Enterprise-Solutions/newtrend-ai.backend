@@ -86,7 +86,9 @@ public sealed class LiveStore : ILiveStore
                         if (string.IsNullOrWhiteSpace(execution.ApplicationVersion))
                             execution.ApplicationVersion = version;
 
-                        if (execution.StepCount >= _maxSteps && execution.AcceptsNew(span))
+                        var tableFull = execution.TableStepCount >= _maxSteps && execution.AcceptsNew(span);
+                        var storeFull = execution.StepCount >= MaxBurstItems && execution.AcceptsNew(span);
+                        if (tableFull || storeFull)
                         {
                             var rotated = Guid.NewGuid().ToString("N");
                             _nextGroup[key] = rotated;
@@ -144,13 +146,16 @@ public sealed class LiveStore : ILiveStore
             _maxSteps = maxItems;
     }
 
-    public void StartNewTrace()
+    public void StartNewTrace(string? traceId = null)
     {
         lock (_gate)
         {
-            foreach (var key in _byTrace.Keys.Concat(_burstByTrace.Values).Distinct())
+            IEnumerable<string> keys = string.IsNullOrWhiteSpace(traceId)
+                ? _byTrace.Keys.Concat(_burstByTrace.Values).Distinct()
+                : [traceId];
+            foreach (var key in keys)
             {
-                if (_nextGroup.ContainsKey(key))
+                if (string.IsNullOrWhiteSpace(key) || _nextGroup.ContainsKey(key))
                     continue;
 
                 _nextGroup[key] = Guid.NewGuid().ToString("N");
@@ -199,6 +204,7 @@ public sealed class LiveStore : ILiveStore
         public string? ApplicationVersion { get; set; }
         public ulong StartedUnixNano { get; private set; } = ulong.MaxValue;
         public int StepCount => _steps.Count;
+        public int TableStepCount => _steps.Values.Count(step => step.Kind != "infrastructure");
 
         public void Absorb(MutableExecution other)
         {

@@ -1,6 +1,7 @@
 using System.IO.Compression;
 using System.Text;
 using System.Text.Json;
+using NewtrendAi.Core.Agent;
 using NewtrendAi.Core.Live;
 using NewtrendAi.Core.Performance;
 using NewtrendAi.Core.Privacy;
@@ -139,6 +140,19 @@ public static class InvestigationAnalysis
             Write(archive, "source-map.json", executions.SelectMany(execution => execution.Steps).Where(step => step.Source is not null).Select(step => new { step.SpanId, step.Source }));
             Write(archive, "errors.json", executions.Select(execution => execution.Error).Where(error => error is not null));
             Write(archive, "performance.json", performance);
+            Write(archive, "evidence.json", executions.Select(execution =>
+            {
+                var findings = RootCauseEngine.Investigate(execution);
+                return new
+                {
+                    execution.TraceId,
+                    findings.Evidence,
+                    findings.Hypothesis,
+                    findings.Confidence,
+                    findings.RelatedFiles,
+                    findings.Kind,
+                };
+            }));
             var context = archive.CreateEntry("ai-context.txt");
             using var writer = new StreamWriter(context.Open());
             writer.Write(Context(investigation, notes, executions, null, null));

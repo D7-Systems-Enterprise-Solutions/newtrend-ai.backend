@@ -11,7 +11,7 @@ namespace NewtrendAi.Core.Api;
 
 public static class ProductEndpoints
 {
-    public static void Map(WebApplication app, string workspace)
+    public static void Map(WebApplication app)
     {
         app.MapDelete("/api/session", async (ILiveStore live, LiveBroadcaster broadcaster) =>
         {
@@ -20,9 +20,16 @@ public static class ProductEndpoints
             return Results.NoContent();
         });
 
-        app.MapPost("/api/session/trace", (ILiveStore live) =>
+        app.MapPost("/api/session/trace", async (HttpRequest request, ILiveStore live) =>
         {
-            live.StartNewTrace();
+            string? traceId = null;
+            if (request.ContentLength is > 0)
+            {
+                var body = await request.ReadFromJsonAsync<RotateBurstBody>();
+                traceId = body?.TraceId;
+            }
+
+            live.StartNewTrace(traceId);
             return Results.NoContent();
         });
 
@@ -272,29 +279,14 @@ public static class ProductEndpoints
 
         app.MapPost("/api/agent/investigate", (InvestigateRequest body, SessionStore store) =>
             Results.Ok(RootCauseEngine.Investigate(store, body.ExecutionId)));
-
-        app.MapPost("/api/agent/patch", (InvestigateRequest body, SessionStore store) =>
-            Results.Ok(FixProposalEngine.Propose(store, body.InvestigationId, body.ExecutionId, workspace)));
-
-        app.MapPost("/api/agent/patch/{id}/approve", (string id, ApprovePatch body, SessionStore store) =>
-        {
-            try
-            {
-                return Results.Ok(FixProposalEngine.Apply(store, id, body.User, workspace, body.Diff));
-            }
-            catch (InvalidOperationException exception)
-            {
-                return Results.BadRequest(new { error = exception.Message });
-            }
-        });
     }
 }
 
 public sealed record BurstLimitBody(int MaxItems);
+public sealed record RotateBurstBody(string? TraceId);
 public sealed record CreateInvestigation(string Name, string? Objective, string? ApplicationVersion);
 public sealed record PatchInvestigation(string? Name, string? Objective, string? Status, string? ApplicationVersion);
 public sealed record AttachExecution(string TraceId);
 public sealed record CreateNote(string? Text, string? Author, string? ExecutionId);
 public sealed record CreateBaseline(string Name, string? FeatureKey, string ExecutionId, string? ApplicationVersion);
 public sealed record InvestigateRequest(string ExecutionId, string? InvestigationId);
-public sealed record ApprovePatch(string? User, string? Diff);
