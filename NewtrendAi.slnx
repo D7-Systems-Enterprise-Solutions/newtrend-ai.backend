@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/apps/" />
+  <Folder Name="/apps/sample/">
+    <Project Path="apps/sample/Sample.Api/Sample.Api.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/NewtrendAi.Core.Tests/NewtrendAi.Core.Tests.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/NewtrendAi.Core/NewtrendAi.Core.csproj" />
+    <Project Path="src/NewtrendAi.Sdk/NewtrendAi.Sdk.csproj" />
+  </Folder>
+</Solution>

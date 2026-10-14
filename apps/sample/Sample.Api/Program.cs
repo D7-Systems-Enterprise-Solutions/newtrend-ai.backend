@@ -1,4 +1,4 @@
-using AINewtrend;
+using NewtrendAi;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseUrls("http://127.0.0.1:5088");
@@ -9,7 +9,7 @@ builder.Services.AddCors(options =>
         policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 });
 
-builder.Services.AddAINewtrend(options =>
+builder.Services.AddNewtrendAi(options =>
 {
     options.ServiceName = "Sample.Api";
     options.Endpoint = new Uri("http://127.0.0.1:4318");

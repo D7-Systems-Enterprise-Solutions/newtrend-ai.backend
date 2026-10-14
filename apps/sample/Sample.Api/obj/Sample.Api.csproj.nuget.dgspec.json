@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\apps\\sample\\Sample.Api\\Sample.Api.csproj": {}
+    "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\apps\\sample\\Sample.Api\\Sample.Api.csproj": {}
   },
   "projects": {
-    "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\apps\\sample\\Sample.Api\\Sample.Api.csproj": {
+    "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\apps\\sample\\Sample.Api\\Sample.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\apps\\sample\\Sample.Api\\Sample.Api.csproj",
+        "projectUniqueName": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\apps\\sample\\Sample.Api\\Sample.Api.csproj",
         "projectName": "Sample.Api",
-        "projectPath": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\apps\\sample\\Sample.Api\\Sample.Api.csproj",
-        "packagesPath": "C:\\Users\\Manuel\\.nuget\\packages\\",
-        "outputPath": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\apps\\sample\\Sample.Api\\obj\\",
+        "projectPath": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\apps\\sample\\Sample.Api\\Sample.Api.csproj",
+        "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
+        "outputPath": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\apps\\sample\\Sample.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Manuel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.1.config",
+          "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,9 +25,7 @@
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 18.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -36,8 +33,8 @@
             "framework": "net9.0",
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\AINewtrend.Sdk.csproj": {
-                "projectPath": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\AINewtrend.Sdk.csproj"
+              "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\NewtrendAi.Sdk\\NewtrendAi.Sdk.csproj": {
+                "projectPath": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\NewtrendAi.Sdk\\NewtrendAi.Sdk.csproj"
               }
             }
           }
@@ -52,7 +49,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.400"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -77,25 +74,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\AINewtrend.Sdk.csproj": {
+    "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\NewtrendAi.Sdk\\NewtrendAi.Sdk.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\AINewtrend.Sdk.csproj",
-        "projectName": "AINewtrend.Sdk",
-        "projectPath": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\AINewtrend.Sdk.csproj",
-        "packagesPath": "C:\\Users\\Manuel\\.nuget\\packages\\",
-        "outputPath": "C:\\Sources\\ai-newtrend\\ai-newtrend.backend\\src\\AINewtrend.Sdk\\obj\\",
+        "projectUniqueName": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\NewtrendAi.Sdk\\NewtrendAi.Sdk.csproj",
+        "projectName": "NewtrendAi.Sdk",
+        "projectPath": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\NewtrendAi.Sdk\\NewtrendAi.Sdk.csproj",
+        "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
+        "outputPath": "C:\\Sources\\Dia7\\newtrend-ai\\newtrend-ai.backend\\src\\NewtrendAi.Sdk\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Manuel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.1.config",
+          "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -103,9 +99,7 @@
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 18.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -125,13 +119,21 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.400"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net9.0": {
           "framework": "net9.0",
           "targetAlias": "net9.0",
           "dependencies": {
+            "Ben.Demystifier": {
+              "target": "Package",
+              "version": "[0.4.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[9.0.8, )"
+            },
             "OpenTelemetry.Exporter.OpenTelemetryProtocol": {
               "target": "Package",
               "version": "[1.19.1, )"
@@ -141,6 +143,10 @@
               "version": "[1.19.1, )"
             },
             "OpenTelemetry.Instrumentation.AspNetCore": {
+              "target": "Package",
+              "version": "[1.19.0, )"
+            },
+            "OpenTelemetry.Instrumentation.SqlClient": {
               "target": "Package",
               "version": "[1.19.0, )"
             }
@@ -164,7 +170,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
