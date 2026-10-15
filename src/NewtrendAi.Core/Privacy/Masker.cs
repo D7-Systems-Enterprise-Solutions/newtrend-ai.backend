@@ -9,13 +9,22 @@ public static partial class Masker
         if (string.IsNullOrEmpty(value))
             return value;
 
-        var masked = Bearer().Replace(value, "$1[masked]");
+        var authorization = new List<string>();
+        var parked = AuthorizationBearer().Replace(value, match =>
+        {
+            authorization.Add(match.Value);
+            return $"@@AUTH{authorization.Count - 1}@@";
+        });
+
+        var masked = Bearer().Replace(parked, "$1[masked]");
         masked = JsonSecret().Replace(masked, "$1\"[masked]\"");
         masked = QuotedAssignment().Replace(masked, "$1$2[masked]$2");
         masked = Assignment().Replace(masked, "$1[masked]");
         masked = SecretColumn().Replace(masked, "$1[masked]");
         masked = SensitiveHeader().Replace(masked, "$1[masked]");
         masked = QuerySecret().Replace(masked, "$1[masked]");
+        for (var index = 0; index < authorization.Count; index++)
+            masked = masked.Replace($"@@AUTH{index}@@", authorization[index], StringComparison.Ordinal);
         return masked;
     }
 
@@ -33,6 +42,9 @@ public static partial class Masker
             step.Name = Mask(step.Name) ?? step.Name;
         }
     }
+
+    [GeneratedRegex(@"(?im)^[ \t]*authorization[ \t]*:[ \t]*bearer[ \t]+[A-Za-z0-9\-._~+/]+=*[ \t\r]*$")]
+    private static partial Regex AuthorizationBearer();
 
     [GeneratedRegex(@"(?i)(Bearer\s+)[A-Za-z0-9\-._~+/]+=*")]
     private static partial Regex Bearer();
