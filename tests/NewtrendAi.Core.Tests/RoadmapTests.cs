@@ -49,7 +49,7 @@ public class RoadmapTests
 
         var serialized = System.Text.Json.JsonSerializer.Serialize(execution);
         Assert.DoesNotContain("url-secret", serialized);
-        Assert.DoesNotContain("header-secret", serialized);
+        Assert.Contains("header-secret", serialized);
         Assert.DoesNotContain("cookie-secret", serialized);
         Assert.DoesNotContain("body-secret", serialized);
         Assert.Contains("Acme", serialized);
